@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/music-player-logo.png" type="image/x-icon">
+    <title>Sign Up</title>
+    <style>
+        /* Global Styles */
+        body,
+        html {
+            height: 100%;
+            /* Ensure the body and html elements fill the viewport */
+            margin: 0;
+            /* Remove default margins */
+            font-family: Arial, sans-serif;
+        }
+
+        /* Background and Container Styles */
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            height: 100%;
+            /* Full viewport height */
+            margin: 0;
+            background-image: url('images/background.jpg');
+            /* Replace with your image path */
+            background-size: cover;
+            /* Cover the entire screen */
+            background-position: center center;
+            /* Center the background image */
+            background-repeat: no-repeat;
+            /* Prevent background repetition */
+        }
+
+        /* Form Area Styling */
+        .form_area {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: #EDDCD9;
+            padding: 20px;
+            border: 2px solid #264143;
+            border-radius: 20px;
+            box-shadow: 3px 4px 0px 1px #E99F4C;
+        }
+
+        /* Title and Subtitle Styling */
+        .title {
+            color: #264143;
+            font-weight: 900;
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+
+        .sub_title {
+            font-weight: 600;
+            margin: 5px 0;
+        }
+
+        /* Input Field Group Styling */
+        .form_group {
+            display: flex;
+            flex-direction: column;
+            align-items: baseline;
+            margin: 10px;
+        }
+
+        /* Input Field Styling */
+        .form_style {
+            outline: none;
+            border: 2px solid #264143;
+            box-shadow: 3px 4px 0px 1px #E99F4C;
+            width: 290px;
+            padding: 12px 10px;
+            border-radius: 4px;
+            font-size: 15px;
+        }
+
+        .form_style:focus,
+        .btn:focus {
+            transform: translateY(4px);
+            box-shadow: 1px 2px 0px 0px #E99F4C;
+        }
+
+        /* Button Styling */
+        .btn {
+            padding: 15px;
+            margin: 25px 0px;
+            width: 290px;
+            font-size: 15px;
+            background: #DE5499;
+            border-radius: 10px;
+            font-weight: 800;
+            box-shadow: 3px 3px 0px 0px #E99F4C;
+        }
+
+        .btn:hover {
+            opacity: .9;
+        }
+
+        /* Link Styling */
+        .link {
+            font-weight: 800;
+            color: #264143;
+            padding: 5px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .title {
+                font-size: 1.2em;
+                /* Reduce title font size on smaller screens */
+            }
+
+            .sub_title {
+                font-size: 14px;
+                /* Adjust subtitle font size */
+            }
+
+            .form_style {
+                font-size: 14px;
+                /* Adjust input field font size */
+            }
+
+            .btn {
+                font-size: 14px;
+                /* Adjust button font size */
+            }
+
+            .form_area {
+                padding: 15px;
+            }
+
+            /* Background Image and Form Alignment */
+            .container {
+                background-size: cover;
+                background-position: top center;
+                padding: 20px;
+                /* Add padding to ensure content is not too close to the edges */
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .title {
+                font-size: 1em;
+                /* Further reduce title size on very small screens */
+            }
+
+            .form_area {
+                width: 90%;
+                /* Increase the width of the form area */
+                padding: 10px;
+            }
+
+            .form_style {
+                padding: 10px;
+                /* Adjust padding in input fields */
+            }
+
+            .btn {
+                padding: 12px;
+                /* Reduce padding of button */
+            }
+        }
+    </style>
+    <!-- Firebase SDK -->
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form_area">
+            <p class="title">SIGN UP</p>
+            <form action="">
+                <div class="form_group">
+                    <label class="sub_title" for="name">Name</label>
+                    <input placeholder="Enter your full name" id="name" class="form_style" type="text">
+                </div>
+                <div class="form_group">
+                    <label class="sub_title" for="email">Email</label>
+                    <input placeholder="Enter your email" id="email" class="form_style" type="email">
+                </div>
+                <div class="form_group">
+                    <label class="sub_title" for="password">Password</label>
+                    <input placeholder="Enter your password" id="password" class="form_style" type="password">
+                </div>
+                <div>
+                    <button type="submit" id="signUpButton" class="btn">SIGN UP</button>
+                    <p>Have an Account? <a class="link" href="login.html">Login Here!</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script type="module" src="js/firebase.js"></script>
+    <script src="js/signup.js" type="module"></script>
+</body>
+
+</html>
