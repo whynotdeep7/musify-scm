@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/music-player-logo.png" type="image/x-icon">
+    <title>Login-Musify</title>
+    <style>
+        :root {
+            --bg_color_1: #070130;
+            --bg_color_2: #0d0065;
+            --bg_color_3: #222b5c;
+            --bg_music_bar: #2b2b2a;
+            --font_color_1: white;
+            --font_color_2: lightgrey;
+            --font_color_3: #1DB954;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, var(--bg_color_1), var(--bg_color_2));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: var(--font_color_1);
+        }
+
+        body {
+            height: auto;
+            width: auto;
+            background-position: left;
+            background-image: url('images/login-page.png');
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            padding: 40px;
+            width: 400px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(30px);
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            margin-bottom: 20px;
+            font-style: italic;
+            color: var(--font_color_2);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: var(--font_color_2);
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            outline: none;
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--font_color_1);
+            transition: background 0.3s;
+        }
+
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            background: rgb(0, 0, 0);
+        }
+
+        .btn {
+            background: var(--font_color_3);
+            color: var(--font_color_1);
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
+            width: 100%;
+            margin-bottom: 10px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .login-btn:hover {
+            background: #1AAE42;
+            transform: scale(1.05);
+        }
+
+        .forgot-password {
+            background: none;
+            color: var(--font_color_3);
+            border: none;
+            font-size: 14px;
+            cursor: pointer;
+            transition: text-decoration 0.2s;
+            margin-top: 10px;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+
+        .signup-link {
+            margin-top: 10px;
+        }
+
+        .signup-link a {
+            color: var(--font_color_3);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
+
+        @font-face {
+            font-family: 'BasheqVintage';
+            src: url('./fonts/BasheqVintageDemoVersionRegular-ov13x.ttf') format('truetype');
+        }
+
+        .musify {
+            font-family: 'BasheqVintage', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            white-space: nowrap;
+            letter-spacing: 0.5px;
+        }
+    </style>
+    <!-- Firebase SDK -->
+    <!-- Load Firebase SDK for modules -->
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <form class="login-form" action="">
+            <img src="images/music-player-logo.png" style="height: 50px; width: 50px; border-radius: 100%;">
+            <h1 class="musify">Musify</h1>
+            <h2 class="login-title">Login</h2><br>
+            <p class="tagline">Your music, your way.</p>
+            <div class="form-group">
+                <label for="username">Email:</label>
+                <input placeholder="Enter your email" id="email" type="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input placeholder="Enter your password" id="password" type="password">
+            </div>
+            <input type="submit" id="loginButton" class="btn" value="LOGIN">
+            <button type="button" id="forgotPassword" class="forgot-password">Forgot Password?</button>
+            <!-- Forgot Password button -->
+            <i id="errormessage"></i>
+            <p class="signup-link">Don't Have an Account? <a href="signup.html">Sign up</a></p>
+        </form>
+    </div>
+
+    <!-- Firebase Initialization and Reset Password Script -->
+    <script type="module" src="js/firebase.js"></script>
+    <script src="js/login.js" type="module"></script>
+    <script type="module">
+        // Forgot Password Button Click Handler
+        import { auth, sendPasswordResetEmail } from './js/firebase.js';  // Import auth and sendPasswordResetEmail from firebase.js
+        document.getElementById('forgotPassword').addEventListener('click', () => {
+            const email = document.getElementById('email').value;
+            if (email) {
+                // Send password reset email via Firebase
+                sendPasswordResetEmail(auth, email)
+                    .then(() => {
+                        alert('Password reset email sent. Check your inbox!');
+                    })
+                    .catch((error) => {
+                        alert('Error sending password reset email: ' + error.message);
+                    });
+            } else {
+                alert('Please enter your email address first.');
+            }
+        });
+    </script>
+</body>
+
+</html>
