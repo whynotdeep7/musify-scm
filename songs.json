@@ -1,0 +1,12 @@
+{
+    "songs": [
+        {
+            "name": "Song 1",
+            "url": "path/to/song1.mp3"
+        },
+        {
+            "name": "Song 2",
+            "url": "path/to/song2.mp3"
+        }
+    ]
+}
