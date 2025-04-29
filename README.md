@@ -15,8 +15,8 @@ Musify is a web-based music streaming application built with HTML, CSS, and Java
 
 - **Frontend**: HTML5, CSS3, JavaScript
 - **Audio**: Native HTML5 audio capabilities
-- **Styling**: Custom CSS
-- **Data**: JSON for song metadata
+- **Styling**: Custom CSS.
+- **Data**: JSON for song metadata.
 
 ## 📋 Prerequisites
 
@@ -92,6 +92,7 @@ musifydeploy/
 - User registration via signup.html
 - Login functionality via login.html
 - Basic user profile management
+- using firebase AUTH
 
 ## 🚀 Deployment
 
