@@ -1,0 +1,22 @@
+body {
+    font-family: Arial, sans-serif;
+}
+.audio-player {
+    display: none; /* Hide the audio player by default */
+    border: 5px solid #3498db;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px; /* Space between the button and the audio player */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.audio-player:target {
+    display: block; /* Show the audio player when targeted */
+}
+
+.styled-audio {
+    width: 100%; 
+    border: none; 
+    outline: none;
+    background-color: transparent; 
+}

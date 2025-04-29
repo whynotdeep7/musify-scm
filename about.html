@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" type="png" href="images/music-player-logo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Musify</title>
+    <style>
+        :root {
+            --bg_color_1: #070130;
+            --bg_color_2: #0d0065;
+            --bg_color_3: #222b5c;
+            --bg_music_bar: #2b2b2a;
+
+            --font_color_1: white;
+            --font_color_2: lightgrey;
+            --font_color_3: #1DB954;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, var(--bg_color_1), var(--bg_color_2), var(--bg_color_3));
+            color: var(--font_color_1);
+            min-height: 100vh; /* Ensure the footer doesn't overlap content */
+            position: relative;
+            padding-bottom: 60px; /* Give space for footer height */
+        }
+
+        header {
+            background-color: var(--bg_color_1);
+            padding: 20px;
+            text-align: center;
+            color: var(--font_color_3);
+        }
+
+        header h1 {
+            font-size: 36px;
+        }
+
+        .about-section, .motive-section {
+            background-color: var(--bg_color_3); /* Background color from the scheme */
+            padding: 40px;
+            width: 60%; /* Set width to 60% for centering */
+            margin: 20px auto; /* Center the section horizontally with margin */
+            text-align: center;
+            border-radius: 10px;
+            color: var(--font_color_1); /* Text color */
+        }
+
+        .about-section h2, .motive-section h2 {
+            font-size: 28px;
+            color: var(--font_color_3); /* Green for the heading */
+        }
+
+        .about-section p, .motive-section p {
+            font-size: 18px;
+            color: var(--font_color_2); /* Light grey for paragraph text */
+            line-height: 1.6;
+        }
+
+        footer {
+            background-color: var(--bg_color_1); /* Dark color */
+            color: var(--font_color_1); /* White text */
+            text-align: center;
+            padding: 20px;
+            position: absolute;
+            bottom: 0;
+            width: 97%;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 28px;
+            }
+
+            .about-section h2, .motive-section h2 {
+                font-size: 24px;
+            }
+
+            .about-section p, .motive-section p {
+                font-size: 16px;
+            }
+
+            .about-section, .motive-section {
+                width: 90%; /* Adjust width for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>About</h1>
+    </header>
+
+    <section class="about-section">
+        <h2>Welcome to Musify</h2>
+        <p>
+            Our music player provides you with an amazing music experience, offering seamless streaming of your favorite tracks. 
+            Designed with an elegant and minimalistic interface, we ensure that your listening experience is simple and enjoyable.
+        </p>
+        <p>
+            With our unique blend of technology and design, we aim to deliver the best audio experience possible. Enjoy access to millions of songs, curated playlists, and exclusive content — all in one place.
+        </p>
+    </section>
+
+    <section class="motive-section">
+        <h2>Our Motive</h2>
+        <p>
+            The motive behind creating this music player is simple — to revolutionize how people interact with music.
+            Our vision is to bring music closer to the listener by making it more accessible and user-friendly. We believe
+            that music should be free of distractions and complexities, which is why we’ve built this player with an intuitive
+            design that lets you focus on what matters most — the music.
+        </p>
+        <p>
+            Our goal is to provide a platform that serves both casual listeners and audiophiles alike. With our advanced features
+            and minimalistic approach, we aim to redefine the way music is experienced, whether you are working, exercising, or simply
+            relaxing.
+        </p>
+    </section>
+
+    <footer>
+        <p>&copy 2024 MUSIFY &trade; - All Rights Reserved</p>
+    </footer>
+</body>
+</html>

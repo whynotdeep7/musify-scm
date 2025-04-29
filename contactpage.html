@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" type="png" href="images/music-player-logo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Musify</title>
+    <style>
+        :root {
+            --bg_color_1: #070130;
+            --bg_color_2: #0d0065;
+            --bg_color_3: #222b5c;
+            --bg_music_bar: #2b2b2a;
+
+            --font_color_1: white;
+            --font_color_2: lightgrey;
+            --font_color_3: #1DB954;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, var(--bg_color_1), var(--bg_color_2), var(--bg_color_3));
+            color: var(--font_color_1);
+            min-height: 100vh;
+            position: relative;
+            padding-bottom: 60px;
+        }
+
+        header {
+            background-color: var(--bg_color_1);
+            padding: 20px;
+            text-align: center;
+            color: var(--font_color_3);
+            width: 96%;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        .contact-section {
+            background-color: var(--bg_color_3);
+            padding: 40px;
+            width: 60%;
+            margin: 20px auto;
+            text-align: center;
+            border-radius: 10px;
+            color: var(--font_color_1);
+        }
+
+        .contact-section h2 {
+            font-size: 28px;
+            color: var(--font_color_3);
+        }
+
+        .contact-section p {
+            font-size: 18px;
+            color: var(--font_color_2);
+            line-height: 1.6;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-form label {
+            font-size: 16px;
+            margin: 10px 0 5px;
+            color: var(--font_color_1);
+        }
+
+        .contact-form input, .contact-form textarea {
+        width: 100%;
+        max-width: 500px;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: #1a1a1a; /* Darker background for input fields */
+        color: var(--font_color_1); /* White text */
+}
+
+
+        .contact-form input[type="submit"] {
+            background-color: var(--font_color_3);
+            color: var(--bg_color_1);
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .contact-form input[type="submit"]:hover {
+            background-color: #17a447; /* Darker green for hover */
+        }
+
+        footer {
+            background-color: var(--bg_color_1);
+            color: var(--font_color_1);
+            text-align: center;
+            padding: 20px;
+            position: absolute;
+            bottom: 0;
+            width: 96%;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 28px;
+            }
+
+            .contact-section h2 {
+                font-size: 24px;
+            }
+
+            .contact-section {
+                width: 90%;
+            }
+
+            .contact-form input, .contact-form textarea {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Contact Us</h1>
+    </header>
+
+    <section class="contact-section">
+        <h2>Get in Touch</h2>
+        <p>
+            Have any questions, feedback, or suggestions? We'd love to hear from you. Please fill out the form below and we'll get back to you as soon as possible!
+        </p>
+
+        <form class="contact-form" action="#" method="post">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
+
+            <input type="submit" value="Send Message">
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2024 MUSIFY - All Rights Reserved</p>
+    </footer>
+</body>
+</html>
