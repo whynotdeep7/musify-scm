@@ -1,0 +1,21 @@
+name: Welcome New Contributor
+
+on:
+  pull_request:
+    types: [opened]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Welcome Message
+        uses: actions/first-interaction@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          pr-message: |
+            👋 Hello @${{ github.actor }}!
+            🎉 Thank you for your contribution.
+            🙌 We appreciate your help in improving this project!
