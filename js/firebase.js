@@ -5,7 +5,7 @@ import { getAuth, sendPasswordResetEmail } from 'https://www.gstatic.com/firebas
 
 // Firebase config (Replace these with your actual Firebase project credentials)
 const firebaseConfig = {
-    apiKey: "AIzaSyDM5UHCtcdur3_rFK5LvsBxAEmdYsXaOGE",
+    apiKey: process.env.FIREBASE_API_KEY,
     authDomain: "musifyuni.firebaseapp.com",
     projectId: "musifyuni",
     storageBucket: "musifyuni.firebasestorage.app",
