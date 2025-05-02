@@ -5,166 +5,161 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="images/music-player-logo.png" type="image/x-icon">
-    <title>Sign Up</title>
+    <title>Sign Up | Musify</title>
     <style>
         /* Global Styles */
-        body,
-        html {
+        body, html {
             height: 100%;
-            /* Ensure the body and html elements fill the viewport */
             margin: 0;
-            /* Remove default margins */
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            overflow: hidden;
         }
 
-        /* Background and Container Styles */
+        /* Psychedelic Animated Background */
         .container {
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-direction: column;
-            text-align: center;
             height: 100%;
-            /* Full viewport height */
-            margin: 0;
-            background-image: url('images/background.jpg');
-            /* Replace with your image path */
-            background-size: cover;
-            /* Cover the entire screen */
-            background-position: center center;
-            /* Center the background image */
-            background-repeat: no-repeat;
-            /* Prevent background repetition */
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(-45deg, #ff00ff, #00f0ff, #9d00ff, #1DB954);
+            background-size: 400% 400%;
+            animation: gradientFlow 15s ease infinite;
         }
 
-        /* Form Area Styling */
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Floating Music Notes */
+        .music-note {
+            position: absolute;
+            opacity: 0.7;
+            animation: floatNote linear infinite;
+        }
+
+        @keyframes floatNote {
+            to { transform: translateY(-100vh) rotate(360deg); }
+        }
+
+        /* Form Area Styling - Glassmorphism Effect */
         .form_area {
             display: flex;
-            justify-content: center;
-            align-items: center;
             flex-direction: column;
-            background-color: #EDDCD9;
-            padding: 20px;
-            border: 2px solid #264143;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 30px 40px;
             border-radius: 20px;
-            box-shadow: 3px 4px 0px 1px #E99F4C;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            z-index: 10;
+            width: 320px;
         }
 
-        /* Title and Subtitle Styling */
+        /* Title Styling with Neon Text */
         .title {
-            color: #264143;
+            color: white;
             font-weight: 900;
-            font-size: 1.5em;
-            margin-top: 20px;
+            font-size: 2em;
+            margin: 10px 0;
+            text-shadow: 0 0 10px #1DB954, 
+                         0 0 20px #1DB954,
+                         0 0 30px #1DB954;
+            letter-spacing: 2px;
         }
 
+        /* Subtitle/Label Styling */
         .sub_title {
+            color: white;
             font-weight: 600;
-            margin: 5px 0;
-        }
-
-        /* Input Field Group Styling */
-        .form_group {
-            display: flex;
-            flex-direction: column;
-            align-items: baseline;
-            margin: 10px;
+            margin: 8px 0;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
         }
 
         /* Input Field Styling */
         .form_style {
             outline: none;
-            border: 2px solid #264143;
-            box-shadow: 3px 4px 0px 1px #E99F4C;
-            width: 290px;
-            padding: 12px 10px;
-            border-radius: 4px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 8px;
             font-size: 15px;
+            color: white;
+            margin-bottom: 15px;
+            transition: all 0.3s;
         }
 
-        .form_style:focus,
-        .btn:focus {
-            transform: translateY(4px);
-            box-shadow: 1px 2px 0px 0px #E99F4C;
+        .form_style::placeholder {
+            color: rgba(255, 255, 255, 0.7);
         }
 
-        /* Button Styling */
+        .form_style:focus {
+            border-color: #1DB954;
+            box-shadow: 0 0 15px rgba(29, 185, 84, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* Button Styling - Glowing Effect */
         .btn {
             padding: 15px;
-            margin: 25px 0px;
-            width: 290px;
-            font-size: 15px;
-            background: #DE5499;
-            border-radius: 10px;
+            margin: 20px 0;
+            width: 100%;
+            font-size: 16px;
+            background: linear-gradient(45deg, #1DB954, #00f0ff);
+            border: none;
+            border-radius: 8px;
             font-weight: 800;
-            box-shadow: 3px 3px 0px 0px #E99F4C;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 0 20px rgba(29, 185, 84, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .btn:hover {
-            opacity: .9;
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(29, 185, 84, 0.8);
         }
 
         /* Link Styling */
         .link {
-            font-weight: 800;
-            color: #264143;
-            padding: 5px;
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
         }
 
-        @media screen and (max-width: 768px) {
-            .title {
-                font-size: 1.2em;
-                /* Reduce title font size on smaller screens */
-            }
+        .link:hover {
+            color: #1DB954;
+            text-shadow: 0 0 10px rgba(29, 185, 84, 0.5);
+        }
 
-            .sub_title {
-                font-size: 14px;
-                /* Adjust subtitle font size */
-            }
-
-            .form_style {
-                font-size: 14px;
-                /* Adjust input field font size */
-            }
-
-            .btn {
-                font-size: 14px;
-                /* Adjust button font size */
-            }
-
+        /* Responsive Design */
+        @media (max-width: 768px) {
             .form_area {
-                padding: 15px;
+                width: 280px;
+                padding: 25px;
             }
+            
+            .title {
+                font-size: 1.8em;
+            }
+        }
 
-            /* Background Image and Form Alignment */
-            .container {
-                background-size: cover;
-                background-position: top center;
+        @media (max-width: 480px) {
+            .form_area {
+                width: 85%;
                 padding: 20px;
-                /* Add padding to ensure content is not too close to the edges */
             }
-        }
-
-        @media screen and (max-width: 480px) {
+            
             .title {
-                font-size: 1em;
-                /* Further reduce title size on very small screens */
-            }
-
-            .form_area {
-                width: 90%;
-                /* Increase the width of the form area */
-                padding: 10px;
-            }
-
-            .form_style {
-                padding: 10px;
-                /* Adjust padding in input fields */
-            }
-
-            .btn {
-                padding: 12px;
-                /* Reduce padding of button */
+                font-size: 1.5em;
             }
         }
     </style>
@@ -175,30 +170,57 @@
 
 <body>
     <div class="container">
+        <!-- Dynamic Music Notes -->
+        <div class="music-note" style="left:10%; animation-duration:15s;">🎵</div>
+        <div class="music-note" style="left:25%; animation-duration:20s;">🎶</div>
+        <div class="music-note" style="left:75%; animation-duration:25s;">🎧</div>
+        <div class="music-note" style="left:90%; animation-duration:18s;">🎤</div>
+        <div class="music-note" style="left:50%; animation-duration:22s;">🎼</div>
+        
+        <!-- Signup Form -->
         <div class="form_area">
-            <p class="title">SIGN UP</p>
+            <p class="title">Join Musify</p>
             <form action="">
                 <div class="form_group">
                     <label class="sub_title" for="name">Name</label>
-                    <input placeholder="Enter your full name" id="name" class="form_style" type="text">
+                    <input placeholder="Your name" id="name" class="form_style" type="text">
                 </div>
                 <div class="form_group">
                     <label class="sub_title" for="email">Email</label>
-                    <input placeholder="Enter your email" id="email" class="form_style" type="email">
+                    <input placeholder="your@email.com" id="email" class="form_style" type="email">
                 </div>
                 <div class="form_group">
                     <label class="sub_title" for="password">Password</label>
-                    <input placeholder="Enter your password" id="password" class="form_style" type="password">
+                    <input placeholder="••••••••" id="password" class="form_style" type="password">
                 </div>
                 <div>
-                    <button type="submit" id="signUpButton" class="btn">SIGN UP</button>
-                    <p>Have an Account? <a class="link" href="login.html">Login Here!</a></p>
+                    <button type="submit" id="signUpButton" class="btn">Get Started</button>
+                    <p style="color:white;">Already have an account? <a class="link" href="login.html">Log in</a></p>
                 </div>
             </form>
         </div>
     </div>
+
     <script type="module" src="js/firebase.js"></script>
     <script src="js/signup.js" type="module"></script>
+    
+    <script>
+        // Create more floating music notes dynamically
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.querySelector('.container');
+            const notes = ['🎵', '🎶', '🎧', '🎤', '🎼', '🎷', '🎸', '🎹'];
+            
+            for (let i = 0; i < 10; i++) {
+                const note = document.createElement('div');
+                note.className = 'music-note';
+                note.textContent = notes[Math.floor(Math.random() * notes.length)];
+                note.style.left = `${Math.random() * 100}%`;
+                note.style.top = `${Math.random() * 100}%`;
+                note.style.fontSize = `${Math.random() * 20 + 10}px`;
+                note.style.animationDuration = `${Math.random() * 15 + 10}s`;
+                container.appendChild(note);
+            }
+        });
+    </script>
 </body>
-
 </html>
